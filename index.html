@@ -108,6 +108,7 @@
 		<header>
 			<h3>An IT 121 Assignment by Mark Jimuel Faylona</h3>
 		</header>
+		<div id="mydiv">Greeting goes here</div>
 		<p>This HTML5 Flexible template could be a good starting point for some of your projects. The template file
 			starts by setting a background color on the HTML element, and setting max-width on the body, which is styled
 			like a wrapper. The BODY element is also set to a percentage width so it leaves a bit of HTML color until it
@@ -127,6 +128,23 @@
 		</small>
 	</footer>
 	<!-- END Footer -->
+	<script>
+		let myDate = new Date();
+		let myHours = myDate.getHours();
+		let myGreeting = '';
+		let myColor = '';
+
+		if (myHours > 12) {
+			myGreeting = "Good Afternoon!";
+			myColor = "orange";
+		} else {
+			myGreeting = "Good Morning?";
+			myColor = "yellow";
+		}
+
+		document.getElementById('mydiv').innerHTML = myGreeting;
+		document.body.style.backgroundColor = myColor;
+	</script>
 </body>
 
 </html>
