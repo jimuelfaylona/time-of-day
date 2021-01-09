@@ -93,7 +93,7 @@
 <body>
 	<header>
 		<h1 class="masthead">Time of Day</h1>
-		<nav>
+		<!--<nav>
 			<ul>
 				<li><a href="#">Link 1</a></li>
 				<li><a href="#">Link 2</a></li>
@@ -102,7 +102,7 @@
 				<li><a href="#">Link 5</a></li>
 				<li><a href="#">Link 6</a></li>
 			</ul>
-		</nav>
+		</nav>-->
 	</header>
 	<main>
 		<header>
@@ -126,6 +126,7 @@
 		<!--<small>&copy; 2013, All Rights Reserved ~ -->
 		<a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
 		<a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
+		<small>&copy; <span id="thisYear"></span>, All Rights Reserved ~
 		</small>
 	</footer>
 	<!-- END Footer -->
@@ -172,6 +173,7 @@
 
 		document.getElementById('mydiv').innerHTML = myGreeting;
 		document.body.style.backgroundColor = myColor;
+		document.getElementById("thisYear").innerHTML = new Date().getFullYear();
 	</script>
 </body>
 
