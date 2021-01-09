@@ -30,7 +30,7 @@
 		}
 
 		img.flexible {
-			float: right;
+
 			display: inline-block;
 			padding: 20px;
 			max-width: 300px;
@@ -109,7 +109,8 @@
 			<h3>An IT 121 Assignment by Mark Jimuel Faylona</h3>
 		</header>
 		<div id='mydiv'>Greeting goes here</div>
-		<p>This HTML5 Flexible template could be a good starting point for some of your projects. The template file
+		<p id="today"></p>
+		<!--<p>This HTML5 Flexible template could be a good starting point for some of your projects. The template file
 			starts by setting a background color on the HTML element, and setting max-width on the body, which is styled
 			like a wrapper. The BODY element is also set to a percentage width so it leaves a bit of HTML color until it
 			shrinks in size toward the mobile view.</p>
@@ -119,12 +120,12 @@
 		<p>The LIST elements inside the NAV are displayed inline by setting the display to be inline-block. Bullets are
 			removed by setting the UL to display</p>
 		<p>The FOOTER includes a clear:both to keep everything above it!</p>
-		<img src="http://dummyimage.com/300x400" alt="Picture of Me!" class="flexible" />
+		<img id=picture src="http://dummyimage.com/300x400" alt="Picture of Me!" class="flexible" />-->
 	</main>
 	<footer>
-		<small>&copy; 2013, All Rights Reserved ~
-			<a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
-			<a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
+		<!--<small>&copy; 2013, All Rights Reserved ~ -->
+		<a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
+		<a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
 		</small>
 	</footer>
 	<!-- END Footer -->
@@ -133,13 +134,40 @@
 		let myHours = myDate.getHours();
 		let myGreeting = '';
 		let myColor = '';
+		let d = new Date();
+		let weekday = new Array(7);
+		weekday[0] = "Sunday";
+		weekday[1] = "Monday";
+		weekday[2] = "Tuesday";
+		weekday[3] = "Wednesday";
+		weekday[4] = "Thursday";
+		weekday[5] = "Friday";
+		weekday[6] = "Saturday";
 
-		if (myHours > 12) {
-			myGreeting = "Good Afternoon!";
+
+		if (myHours < 12 && myHours >= 5) {
+			myGreeting = "Good Morning!";
 			myColor = "orange";
-		} else {
-			myGreeting = "Good Morning?";
+			document.write("<img src='images/morning.jpg' width='100%'/>");
+
+
+		} else if (myHours >= 12 && myHours < 18) {
+			myGreeting = "Good Afternoon!";
 			myColor = "yellow";
+			document.write("<img src='images/afternoon.jpg' width='100%'/>");
+
+		}
+		else if (myHours >= 18 && myHours < 23) {
+			myGreeting = "Good Evening!";
+			myColor = "red";
+			document.write("<img src='images/evening.jpg' width='100%'/>");
+			let n = weekday[d.getDay()];
+			document.getElementById("today").innerHTML = n;
+		}
+		else {
+			myGreeting = "Good Night!";
+			myColor = "blue";
+			document.write("<img src='images/night.jpg' width='100%'/>");
 		}
 
 		document.getElementById('mydiv').innerHTML = myGreeting;
